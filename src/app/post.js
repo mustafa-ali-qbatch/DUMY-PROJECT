@@ -1,5 +1,4 @@
 export default function Post({data}) {
-    console.log("data: ", data)
     return (
       <>
         <div className="p-8 bg-gray-50 dark:bg-gray-900 flex items-center justify-center w-screen h-screen">
