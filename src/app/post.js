@@ -6,7 +6,7 @@ export default function Post({data}) {
             <div className="flex mb-4">
               <img
                 className="w-12 h-12 rounded-full"
-                src={data.imageUrl}
+                src={data.image}
                 alt="Profile"
               />
               <div className="ml-2 mt-0.5">
