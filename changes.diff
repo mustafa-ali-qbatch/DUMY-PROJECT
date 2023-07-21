@@ -1,0 +1,233 @@
+diff --git a/src/app/css/abc.css b/src/app/css/abc.css
+new file mode 100644
+index 0000000..6d5f14b
+--- /dev/null
++++ b/src/app/css/abc.css
+@@ -0,0 +1,3 @@
++.margin-left{
++    margin-left: 250px;
++}
+\ No newline at end of file
+* Unmerged path src/app/feed/page.js
+diff --git a/src/app/friend_card.js b/src/app/friend_card.js
+new file mode 100644
+index 0000000..90b6f9a
+--- /dev/null
++++ b/src/app/friend_card.js
+@@ -0,0 +1,101 @@
++export default function FriendCard({ data }) {
++  return (
++    <>
++      <div className=" grid">
++        <div className="flex flex-row rounded-lg border border-gray-200/80 bg-white p-6">
++          <div className="relative">
++            <div
++              className="absolute -right-3 bottom-5 h-5 w-5 sm:top-2 rounded-full border-4 border-white bg-green-400 sm:invisible md:visible"
++              title="User is online"
++            ></div>
++          </div>
++
++          <div className="flex flex-col px-6">
++            <div className="flex h-8 flex-row">
++              <h2 className="text-lg font-semibold">{data.name}</h2>
++            </div>
++
++            <div className="my-2 flex flex-row space-x-2">
++              <div className="flex flex-row">
++                <div className="text-xs text-gray-400/80 hover:text-gray-400">
++                  {data.bio}
++                </div>
++              </div>
++
++              <div className="flex flex-row">
++                <div className="text-xs text-gray-400/80 hover:text-gray-400">
++                  {data.city}
++                </div>
++              </div>
++
++              <div className="flex flex-row">
++                <div className="text-xs text-gray-400/80 hover:text-gray-400">
++                  {data.name}
++                </div>
++              </div>
++            </div>
++
++            <div className="mt-2 flex flex-row items-center space-x-5">
++              <a
++                href="#"
++                className="flex h-20 w-40 flex-col items-center justify-center rounded-md border border-dashed border-gray-200 transition-colors duration-100 ease-in-out hover:border-gray-400/80"
++              >
++                <div className="flex flex-row items-center justify-center">
++                  <span className="font-bold text-gray-600">
++                    {" "}
++                    {data.comments_count}
++                  </span>
++                </div>
++
++                <div className="mt-2 text-sm text-gray-400">Comments</div>
++              </a>
++
++              <a
++                href="#"
++                className="flex h-20 w-40 flex-col items-center justify-center rounded-md border border-dashed border-gray-200 transition-colors duration-100 ease-in-out hover:border-gray-400/80"
++              >
++                <div className="flex flex-row items-center justify-center">
++                  <span className="font-bold text-gray-600">
++                    {" "}
++                    {data.mutual_con}{" "}
++                  </span>
++                </div>
++
++                <div className="mt-2 text-sm text-gray-400">
++                  Mutual Connection
++                </div>
++              </a>
++
++              <a
++                href="#"
++                className="flex h-20 w-40 flex-col items-center justify-center rounded-md border border-dashed border-gray-200 transition-colors duration-100 ease-in-out hover:border-gray-400/80"
++              >
++                <div className="flex flex-row items-center justify-center">
++                  <span className="font-bold text-gray-600">
++                    {" "}
++                    {data.likes_count}{" "}
++                  </span>
++                </div>
++
++                <div className="mt-2 text-sm text-gray-400">Likes</div>
++              </a>
++            </div>
++          </div>
++
++          <div className="w-100 flex flex-grow flex-col items-end justify-start">
++            <div className="flex flex-row space-x-3">
++              <button className="flex rounded-md bg-blue-500 py-2 px-4 text-white transition-all duration-150 ease-in-out hover:bg-blue-600">
++                Add Friend
++              </button>
++
++              <button
++                className="flex rounded-md bg-gray-100 py-2 px-1 text-white 
++        transition-all duration-150 ease-in-out hover:bg-gray-200"
++              ></button>
++            </div>
++          </div>
++        </div>
++      </div>
++    </>
++  );
++}
+diff --git a/src/app/friends/page.js b/src/app/friends/page.js
+new file mode 100644
+index 0000000..2d1d5dc
+--- /dev/null
++++ b/src/app/friends/page.js
+@@ -0,0 +1,51 @@
++import Image from "next/image";
++import "../css/abc.css"
++import Sidebar from "../sidebar";
++import FriendCard from "../friend_card";
++import Footer from "../footer";
++const arr = [
++  {
++    id: 1,
++    name: "Mustafa",
++    bio: "I don't know who I am",
++    city: "Faisalabad",
++    comments_count: "35",
++    mutual_con: "10",
++    likes_count: "100",
++  },
++  {
++    id: 2,
++    name: "Ali",
++    bio: "I don't know who I am",
++    city: "Faisalabad",
++    comments_count: "35",
++    mutual_con: "10",
++    likes_count: "100",
++  },
++  {
++    id: 3,
++    name: "Afatsum",
++    bio: "I don't know who I am",
++    city: "Faisalabad",
++    comments_count: "35",
++    mutual_con: "10",
++    likes_count: "100",
++  },
++];
++export default function Friends() {
++  return (
++    <>
++      <Sidebar />
++      {arr.map((item) => {
++        return (
++          <>
++            <div className="margin-left">
++              <FriendCard data={item} key={item.id} />;
++            </div>
++          </>
++        );
++      })}
++      <Footer />
++    </>
++  );
++}
+diff --git a/src/app/sidebar.js b/src/app/sidebar.js
+index e53bd8b..c086db5 100644
+--- a/src/app/sidebar.js
++++ b/src/app/sidebar.js
+@@ -1,5 +1,6 @@
+ import { Home, Inbox, Group, AccountCircle, Logout } from "@mui/icons-material";
+-import 'tailwindcss/tailwind.css'
++import "tailwindcss/tailwind.css";
++import Link from "@mui/material/Link";
+ 
+ export default function Sidebar() {
+   return (
+@@ -54,13 +55,24 @@ export default function Sidebar() {
+               </a>
+             </li>
+             <li>
+-              <a
+-                href="#"
++              <Link
++                href="/feed"
++                variant="body2"
+                 className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+               >
+                 <Home />
+-                <span className="ml-3">Home</span>
+-              </a>
++                <span className="ml-3">Feed</span>
++              </Link>
++            </li>
++            <li>
++              <Link
++                href="/friends"
++                variant="body2"
++                className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
++              >
++                <Group />
++                <span className="ml-3">Friends</span>
++              </Link>
+             </li>
+             <li>
+               <a
+@@ -74,16 +86,6 @@ export default function Sidebar() {
+                 </span>
+               </a>
+             </li>
+-            <li>
+-              <a
+-                href="#"
+-                className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+-              >
+-                <Group />
+-                <span className="flex-1 ml-3 whitespace-nowrap">Friends</span>
+-              </a>
+-            </li>
+-
+             <li>
+               <a
+                 href="#"

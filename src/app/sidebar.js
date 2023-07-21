@@ -1,5 +1,6 @@
 import { Home, Inbox, Group, AccountCircle, Logout } from "@mui/icons-material";
-import 'tailwindcss/tailwind.css'
+import "tailwindcss/tailwind.css";
+import Link from "@mui/material/Link";
 
 export default function Sidebar() {
   return (
@@ -54,13 +55,24 @@ export default function Sidebar() {
               </a>
             </li>
             <li>
-              <a
-                href="#"
+              <Link
+                href="/feed"
+                variant="body2"
                 className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
               >
                 <Home />
-                <span className="ml-3">Home</span>
-              </a>
+                <span className="ml-3">Feed</span>
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/friends"
+                variant="body2"
+                className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+              >
+                <Group />
+                <span className="ml-3">Friends</span>
+              </Link>
             </li>
             <li>
               <a
@@ -74,16 +86,6 @@ export default function Sidebar() {
                 </span>
               </a>
             </li>
-            <li>
-              <a
-                href="#"
-                className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
-              >
-                <Group />
-                <span className="flex-1 ml-3 whitespace-nowrap">Friends</span>
-              </a>
-            </li>
-
             <li>
               <a
                 href="#"
