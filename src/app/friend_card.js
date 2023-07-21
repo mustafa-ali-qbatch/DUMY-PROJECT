@@ -1,7 +1,7 @@
 export default function FriendCard({ data }) {
   return (
     <>
-      <div className=" grid">
+      <div className="my-2 grid">
         <div className="flex flex-row rounded-lg border border-gray-200/80 bg-white p-6">
           <div className="relative">
             <div

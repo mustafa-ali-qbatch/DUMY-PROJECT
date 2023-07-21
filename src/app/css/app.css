@@ -1,0 +1,19 @@
+.margin-left{
+    margin-left: 250px;
+}
+.width-clac{
+    width: calc(100% - 256px);
+}
+.display-flex{
+    display: flex;
+}
+.background-color{
+    background: lightgray;
+}
+
+.text-decoration{
+    text-decoration: none;
+}
+.max-width{
+    max-width: 72rem;
+}
