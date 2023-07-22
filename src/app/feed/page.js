@@ -14,7 +14,7 @@ const fetchDataFromUsersTable = async () => {
   }
 };
 const arr2 = await fetchDataFromUsersTable();
-console.log("data: ", arr2);
+console.log(" data from db: ", arr2);
 const arr = [
   {
     id: 1,
