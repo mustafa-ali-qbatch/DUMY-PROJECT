@@ -38,17 +38,17 @@ export default function Friends() {
       <div className="flex w-100">
         <Sidebar />
         <div className="m-3 width-clac">
-          <h1 className="font-bold">Add Friends</h1>
+          <h1 className="font-bold">Pending Request</h1>
           {arr.map((item) => {
             return (
               <>
                 <div>
-                  <FriendCard data={item} key={item.id} />
+                  <FriendCard data={item} key={item.id} status={"pending"} />
                 </div>
               </>
             );
           })}
-          <h1 className="font-bold">Pending Request</h1>
+          <h1 className="font-bold">Add Friends</h1>
           {arr.map((item) => {
             return (
               <>

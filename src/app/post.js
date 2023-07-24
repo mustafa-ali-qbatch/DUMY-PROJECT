@@ -11,10 +11,10 @@ export default function Post({ data }) {
             />
             <div className="ml-2 mt-0.5">
               <span className="block font-medium text-base leading-snug text-black dark:text-gray-100">
-                {data.author}
+                {data['user.user_name']}
               </span>
               <span className="block text-sm text-gray-500 dark:text-gray-400 font-light leading-snug">
-                {data.timestamp}
+                {new Date(data.created_at).toLocaleString()}
               </span>
             </div>
           </div>
@@ -43,14 +43,14 @@ export default function Post({ data }) {
                       ></i>
                     </button>
                     <div className="ml-1">
-                      <p>{data.likes}</p>
+                      <p>10</p>
                     </div>
                   </div>
                 </div>
               </span>
             </div>
             <div className="ml-1 text-gray-500 dark:text-gray-400 font-light">
-              {data.comments} comments
+              5 comments
             </div>
           </div>
         </div>

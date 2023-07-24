@@ -1,11 +1,9 @@
 "use client";
-import * as React from "react";
+import React, { useState } from "react";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
 import Link from "@mui/material/Link";
 import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
@@ -13,17 +11,33 @@ import Grid from "@mui/material/Grid";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+// import { signup } from "../Helpers/index";
 
 const defaultTheme = createTheme();
 
+
+
 export default function SignInSide() {
-  const handleSubmit = (event) => {
+  const [mainState, setMainState] = useState({
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
+    console.log("data: ", data)
     console.log({
       email: data.get("email"),
       password: data.get("password"),
+      confirmPassword: data.get("confirmPassword"),
     });
+    // if (data)
+      // await signup({
+      //   email: data.get("email"),
+      //   password: data.get("password"),
+      //   confirmPassword: data.get("confirmPassword"),
+      // });
   };
 
   return (
@@ -93,10 +107,10 @@ export default function SignInSide() {
                 margin="normal"
                 required
                 fullWidth
-                name="confirm_password"
+                name="confirmPassword"
                 label="Confirm Password"
                 type="password"
-                id="confirm_password"
+                id="confirmPassword"
                 autoComplete="current-password"
               />
               <Button

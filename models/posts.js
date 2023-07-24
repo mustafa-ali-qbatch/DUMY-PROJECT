@@ -19,9 +19,9 @@ const Posts = sequelize.define(
   },
   MODEL_OPTS,
 )
-// Posts.associate = function (models) {
-// Posts.belongsTo(models.users)
+Posts.associate = function (models) {
+Posts.belongsTo(models.users)
 // Posts.hasMany(models.likes, { foreignKey: 'post_id'})
 // Posts.hasMany(models.comments, { foreignKey: 'post_id'})
-// }
+}
 export { Posts }

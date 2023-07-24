@@ -1,4 +1,4 @@
-export default function FriendCard({ data }) {
+export default function FriendCard({ data, status, isFriend }) {
   return (
     <>
       <div className="my-2 grid">
@@ -81,19 +81,15 @@ export default function FriendCard({ data }) {
               </a>
             </div>
           </div>
-
-          <div className="w-100 flex flex-grow flex-col items-end justify-start">
-            <div className="flex flex-row space-x-3">
-              <button className="flex rounded-md bg-blue-500 py-2 px-4 text-white transition-all duration-150 ease-in-out hover:bg-blue-600">
-                Add Friend
-              </button>
-
-              <button
-                className="flex rounded-md bg-gray-100 py-2 px-1 text-white 
-        transition-all duration-150 ease-in-out hover:bg-gray-200"
-              ></button>
+          {isFriend ? null : (
+            <div className="w-100 flex flex-grow flex-col items-end justify-start">
+              <div className="flex flex-row space-x-3">
+                <button className="flex rounded-md bg-blue-500 py-2 px-4 text-white transition-all duration-150 ease-in-out hover:bg-blue-600">
+                  {status === "pending" ? "Accept" : "Add Friend"}
+                </button>
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
     </>
