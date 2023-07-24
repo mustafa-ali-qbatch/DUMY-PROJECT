@@ -4,6 +4,15 @@
     "password": "anosh12",
     "database": "facebook",
     "host": "localhost",
+    "port": 5432,
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "postgres",
+    "password": "anosh12",
+    "database": "postgres",
+    "host": "localhost",
+    "port": 5432,
     "dialect": "postgres"
   }
 }

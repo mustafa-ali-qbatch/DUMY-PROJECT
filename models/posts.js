@@ -1,6 +1,7 @@
 import { DataTypes } from 'sequelize'
+import { MODEL_OPTS } from '../config/constants'
 import sequelize from '../db'
-const MODEL_OPTS = { underscored: true, updatedAt: 'updated_at', createdAt: 'created_at' }
+import { Users } from './users'
 const Posts = sequelize.define(
   'posts',
   {
@@ -18,8 +19,9 @@ const Posts = sequelize.define(
   },
   MODEL_OPTS,
 )
-// Posts.hasMany(sequelize.models.likes, {
-//     foreignKey: 'post_id', 
-//     as: 'posts',
-//   });
+// Posts.associate = function (models) {
+// Posts.belongsTo(models.users)
+// Posts.hasMany(models.likes, { foreignKey: 'post_id'})
+// Posts.hasMany(models.comments, { foreignKey: 'post_id'})
+// }
 export { Posts }

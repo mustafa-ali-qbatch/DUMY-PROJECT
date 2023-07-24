@@ -1,5 +1,6 @@
-import { DataTypes }  from 'sequelize';
-import  sequelize  from '../db';
+import { DataTypes } from 'sequelize'
+import sequelize from '../db'
+import { Posts } from './posts'
 const Users = sequelize.define('users', {
   user_name: {
     type: DataTypes.STRING,
@@ -19,9 +20,20 @@ const Users = sequelize.define('users', {
   updatedAt: {
     type: DataTypes.DATE,
   },
-}) 
-Users.hasMany(sequelize.models.posts, {
-    foreignKey: 'user_id', 
-    as: 'posts',
-  });
+})
+
+// Users.associate = function (models) {
+//   console.log("models: ", models)
+//   Users.hasMany(Posts, { foreignKey: 'user_id' }),
+//   Users.belongsToMany(models.users, {
+//       through: { model: models.user_friends },
+//       as: 'Friends',
+//       foreignKey: 'user_id',
+//       otherKey: 'friend_id',
+//     })
+// }
+
+// Users.associate = function (models) {
+// }
+
 export { Users }
