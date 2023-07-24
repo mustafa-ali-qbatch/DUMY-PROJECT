@@ -3,12 +3,10 @@ import Sidebar from "../sidebar";
 import Post from "../post";
 import Footer from "../footer";
 import FriendCard from "../friend_card";
-import { Posts } from "./../../../models/posts";
-import { fetchFriends, fetchPostsByUser } from "../Helpers/index";
+import { fetchPostsByUser, fetchFriends } from "../Helpers/index";
 const postUser = await fetchPostsByUser(1)
-console.log("post user: ", postUser)
-const userData = await fetchFriends('pending')
-console.log("Pending data: ", userData)
+const userData = await fetchFriends("pending", 1);
+
 
 const friends = [
     {
@@ -45,7 +43,7 @@ export default function Me() {
       <div className="flex w-100">
         <Sidebar />
         <div className="m-3 width-clac">
-        <h1 className="font-bold">My Friends</h1>
+          <h1 className="font-bold">My Friends</h1>
           {friends.map((item) => {
             return (
               <>

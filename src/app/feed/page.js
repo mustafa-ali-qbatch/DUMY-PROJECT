@@ -2,7 +2,7 @@ import Sidebar from "../sidebar";
 import Post from "../post";
 import Footer from "../footer";
 import { fetchPosts } from "../Helpers/index.js";
-const arr = await fetchPosts()
+const arr = await fetchPosts(1)
 export default function Feed() {
   return (
     <>

@@ -9,7 +9,6 @@ import { UserFriends } from './user_friends'
 // Posts.hasMany(models.likes, { foreignKey: 'post_id'})
 // Posts.hasMany(models.comments, { foreignKey: 'post_id'})
 const setUpAcosiation = () => {
-  console.log('In set ass: ')
   Users.hasMany(Posts, { foreignKey: 'user_id' })
   Posts.belongsTo(Users)
   Posts.hasMany(Comments, { foreignKey: 'post_id' })
