@@ -10,7 +10,7 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-          model: 'users', // Replace 'users' with the actual name of the users table
+          model: 'users',
           key: 'id',
         },
       },

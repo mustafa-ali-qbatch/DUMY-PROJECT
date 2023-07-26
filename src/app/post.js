@@ -1,4 +1,11 @@
+import CommentCard from "./comment_card";
+import { createComment } from "./Helpers";
+import ReactionComponent from "./reaction_card";
 export default function Post({ data }) {
+  async function createCommentFunc(data) {
+    'use server'
+    await createComment(data)
+  }
   return (
     <>
       <div className="p-8 bg-gray-50 dark:bg-gray-900 flex ">
@@ -11,7 +18,7 @@ export default function Post({ data }) {
             />
             <div className="ml-2 mt-0.5">
               <span className="block font-medium text-base leading-snug text-black dark:text-gray-100">
-                {data['user.user_name']}
+                {data?.user?.name}
               </span>
               <span className="block text-sm text-gray-500 dark:text-gray-400 font-light leading-snug">
                 {new Date(data.created_at).toLocaleString()}
@@ -27,31 +34,15 @@ export default function Post({ data }) {
               <span className="ml-1 text-gray-500 dark:text-gray-400 font-light">
                 <div className="flex items-center">
                   <div className="flex items-center">
-                    <button className="focus:outline-none flex items-center justify-center w-4 h-4 rounded-full bg-red-500 text-white">
-                      <i style={{ fontSize: 10 }} className="fas fa-heart"></i>
-                    </button>
-                    <button className="focus:outline-none flex items-center justify-center w-4 h-4 rounded-full bg-primary text-white">
-                      <i
-                        style={{ fontSize: 10 }}
-                        className="fas fa-thumbs-up"
-                      ></i>
-                    </button>
-                    <button className="focus:outline-none flex items-center justify-center w-4 h-4 rounded-full bg-yellow-500 text-white">
-                      <i
-                        style={{ fontSize: 10 }}
-                        className="fas fa-surprise"
-                      ></i>
-                    </button>
+                  <ReactionComponent/>
                     <div className="ml-1">
-                      <p>10</p>
+                      {/* <p>10</p> */}
                     </div>
                   </div>
                 </div>
               </span>
-            </div>
-            <div className="ml-1 text-gray-500 dark:text-gray-400 font-light">
-              5 comments
-            </div>
+            </div>    
+            <CommentCard comment={data.comments.content} postId={data.id} userId={data.user_id} createComment={createCommentFunc}/>
           </div>
         </div>
       </div>

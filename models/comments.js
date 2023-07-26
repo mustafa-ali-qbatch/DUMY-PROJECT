@@ -1,6 +1,6 @@
 import { DataTypes } from 'sequelize'
+import { MODEL_OPTS } from '../config/constants'
 import sequelize from '../db'
-const MODEL_OPTS = { underscored: true, updatedAt: 'updated_at', createdAt: 'created_at' }
 const Comments = sequelize.define(
   'comments',
   {

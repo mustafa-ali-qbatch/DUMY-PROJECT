@@ -17,3 +17,15 @@
 .max-width{
     max-width: 72rem;
 }
+.comment-collapse {
+    position: relative;
+    margin-top: 10px; /* Adjust the top margin as needed */
+  }
+  .comment-collapse .collapse {
+    position: absolute;
+    top: 100%; /* Position the collapse below the "comments" text */
+    left: 0;
+    width: 100%;
+    z-index: 1;
+  }
+  

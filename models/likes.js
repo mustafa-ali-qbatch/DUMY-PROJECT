@@ -1,13 +1,9 @@
 import { DataTypes } from 'sequelize'
+import { MODEL_OPTS } from '../config/constants'
 import sequelize from '../db'
-const MODEL_OPTS = { underscored: true, updatedAt: 'updated_at', createdAt: 'created_at' }
 const Likes = sequelize.define(
   'likes',
   {
-    id: {
-      type: DataTypes.STRING,
-      primaryKey: true,
-    },
     post_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -18,6 +14,9 @@ const Likes = sequelize.define(
       allowNull: false,
       references: { model: { tableName: 'users', field: 'id' } },
     },
+    like_type: {
+        type: DataTypes.ENUM('laugh', 'like', 'love'),
+      }
   },
   MODEL_OPTS,
 )

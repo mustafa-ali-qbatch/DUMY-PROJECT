@@ -1,8 +1,8 @@
 {
   "development": {
-    "username": "localhost",
+    "username": "postgres",
     "password": "anosh12",
-    "database": "facebook",
+    "database": "postgres",
     "host": "localhost",
     "port": 5432,
     "dialect": "postgres"

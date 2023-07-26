@@ -25,9 +25,7 @@ fs
     const model = require(path.join(__dirname, file))(sequelize, Sequelize.DataTypes);
     db[model.name] = model;
   });
-  console.log("b.getKeys().", db.getKeys())
 Object.keys(db).forEach(modelName => {
-  console.log("model  name: ", modelName)
   if (db[modelName].associate) {
     db[modelName].associate(db);
   }

@@ -21,19 +21,4 @@ const Users = sequelize.define('users', {
     type: DataTypes.DATE,
   },
 })
-
-// Users.associate = function (models) {
-//   console.log("models: ", models)
-//   Users.hasMany(Posts, { foreignKey: 'user_id' }),
-//   Users.belongsToMany(models.users, {
-//       through: { model: models.user_friends },
-//       as: 'Friends',
-//       foreignKey: 'user_id',
-//       otherKey: 'friend_id',
-//     })
-// }
-
-// Users.associate = function (models) {
-// }
-
 export { Users }
